@@ -3,7 +3,7 @@ I enjoy coding challanges, I wish to some day complete the 2021 and 2022 advent 
 If I do so, I'll post it here.
 ### For now, I've done:
 2022:<br>
-- Day 1 in Python
+- Day 1 in Python, Rust
 - Day 2 in Python
 - Day 3 in Python
 
