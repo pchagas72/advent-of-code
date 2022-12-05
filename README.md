@@ -9,7 +9,7 @@ If I do so, I'll post it here.
 - Day 4 in Python
 
 <br><br>
-2021 (the code is really bad) :<br>
+2021 (This code is really bad) :<br>
 - Day 1 in Go, C++
 - Day 2 in Go, C++
 - Day 3 in Go
