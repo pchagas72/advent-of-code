@@ -6,6 +6,7 @@ If I do so, I'll post it here.
 - Day 1 in Python, Rust
 - Day 2 in Python
 - Day 3 in Python
+- Day 4 in Python
 
 <br><br>
 2021:<br>
