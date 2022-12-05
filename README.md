@@ -4,7 +4,7 @@ If I do so, I'll post it here.
 ### For now, I've done:
 2022:<br>
 - Day 1 in Python, Rust
-- Day 2 in Python
+- Day 2 in Python, Rust
 - Day 3 in Python
 - Day 4 in Python
 - Day 5 in Python
