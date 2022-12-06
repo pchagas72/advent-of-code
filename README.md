@@ -5,7 +5,7 @@ If I do so, I'll post it here.
 2022:<br>
 - Day 1 in Python, Rust
 - Day 2 in Python, Rust
-- Day 3 in Python, Rust (missing part 2 for now)
+- Day 3 in Python, Rust 
 - Day 4 in Python
 - Day 5 in Python
 
