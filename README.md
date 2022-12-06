@@ -6,7 +6,7 @@ If I do so, I'll post it here.
 - Day 1 in Python, Rust
 - Day 2 in Python, Rust
 - Day 3 in Python, Rust 
-- Day 4 in Python
+- Day 4 in Python, Rust
 - Day 5 in Python
 - Day 6 in Python
 
