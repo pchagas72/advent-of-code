@@ -2,6 +2,7 @@ use std::fs::File;
 use std::io::prelude::*;
 use std::io::BufReader;
 use std::collections::HashMap;
+use std::time::{Instant, Duration};
 
 fn read_file(filename : &str) -> Vec<String> {
     let file = File::open(filename).expect("Cant open file");
@@ -30,7 +31,7 @@ fn create_hashmap() -> HashMap<String, u32> {
     return hashmap;
 }
 
-fn divide_sacks(data : Vec<String>) -> Vec<(String, String)> {
+fn divide_sacks(data : &Vec<String>) -> Vec<(String, String)> {
     let mut divided : Vec<(String, String)> = Vec::new();
     for i in 0 .. data.len(){
         let element : String = data[i].to_string();
@@ -76,7 +77,7 @@ fn divide_equals(divided_data : Vec<(String, String)>) -> Vec<char> {
     return equals;
 }
 
-fn sum_char_values(values : Vec<char>, cases : HashMap<String, u32>) -> u32{ // Just now I noticed that I created the hashmap with String keys, and not char keys, it's 1:11AM.
+fn sum_char_values(values : Vec<char>, cases : &HashMap<String, u32>) -> u32{ // Just now I noticed that I created the hashmap with String keys, and not char keys, it's 1:11AM.
     let mut sum : u32 = 0;
     for i in 0 .. values.len(){
         let key : String = values[i].to_string();
@@ -86,19 +87,59 @@ fn sum_char_values(values : Vec<char>, cases : HashMap<String, u32>) -> u32{ // 
     return sum;
 }
 
-fn main(){
+fn divide_groups(data : &Vec<String>) -> (Vec<String>, Vec<String>, Vec<String>){
+    let mut gs1 : Vec<String> = Vec::new();
+    let mut gs2 : Vec<String> = Vec::new();
+    let mut gs3 : Vec<String> = Vec::new();
+    let mut counter : u32 = 0;
+    for i in 0 .. data.len(){
+        let element : &String = &data[i];
+        if counter == 0{
+            gs1.push(element.to_string());
+            counter += 1
+        }
+        else if counter == 1{
+            gs2.push(element.to_string());
+            counter += 1;
+        }
+        else if counter == 2{
+            gs3.push(element.to_string());
+            counter = 0;
+        }
+    }
+    return (gs1, gs2, gs3);
+}
 
+fn get_common_values(divided_groups : (Vec<String>, Vec<String>, Vec<String>)) -> Vec<char>{
+    let mut commons : Vec<char> = Vec::new();
+    let (g1, g2, g3) : (Vec<String>, Vec<String>, Vec<String>) = divided_groups;
+    for i in 0 .. g1.len(){
+        let first : Vec<char> = g1[i].to_string().chars().collect();
+        let second : Vec<char> = g2[i].to_string().chars().collect();
+        let third : Vec<char> = g3[i].to_string().chars().collect();
+        for i in 0 .. first.len(){
+            let element : char = first[i];
+            if second.contains(&element) && third.contains(&element){
+                commons.push(element);
+                break;
+            }
+        }
+    }
+    return commons;
+}
+
+fn main(){
+    let start = Instant::now();
     let cases : HashMap<String, u32> = create_hashmap();
     let data : Vec<String> = read_file("test.txt");
-    let divided : Vec<(String, String)> = divide_sacks(data);
-    for i in 0 .. divided.len(){
-        println!("{} {}", divided[i].0, divided[i].1);
-    }
+    let divided : Vec<(String, String)> = divide_sacks(&data);
     let equals : Vec<char> = divide_equals(divided);
-    for i in 0 .. equals.len(){
-        println!("{}", equals[i]);
-    }
-    let first_answer : u32 = sum_char_values(equals, cases);
+    let first_answer : u32 = sum_char_values(equals, &cases);
     println!("The first answer was {}", first_answer);
-
+    let dg : (Vec<String>, Vec<String>, Vec<String>) = divide_groups(&data);
+    let cv : Vec<char> = get_common_values(dg);
+    let second_answer : u32 = sum_char_values(cv, &cases);
+    let duration = start.elapsed();
+    println!("The second answer was {}", second_answer);
+    println!("The time was {:?}", duration);
 }
