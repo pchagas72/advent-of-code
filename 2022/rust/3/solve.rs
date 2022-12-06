@@ -2,7 +2,7 @@ use std::fs::File;
 use std::io::prelude::*;
 use std::io::BufReader;
 use std::collections::HashMap;
-use std::time::{Instant, Duration};
+use std::time::Instant;
 
 fn read_file(filename : &str) -> Vec<String> {
     let file = File::open(filename).expect("Cant open file");
