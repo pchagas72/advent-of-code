@@ -8,7 +8,7 @@ If I do so, I'll post it here.
 - Day 3 in Python, Rust 
 - Day 4 in Python, Rust
 - Day 5 in Python
-- Day 6 in Python
+- Day 6 in Python, Rust
 
 <br><br>
 2021 (This code is really bad) :<br>
