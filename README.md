@@ -10,6 +10,7 @@ If I do so, I'll post it here.
 - Day 5 in Python
 - Day 6 in Python, Rust
 - Day 7 in Python
+- Day 8 in Python
 
 <br><br>
 2021 (This code is really bad) :<br>
